@@ -58,52 +58,51 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <section id="contact" className="py-16 sm:py-20 border-t border-stone-200/80 dark:border-stone-800/80 bg-stone-50/60 dark:bg-stone-900/40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl space-y-2">
-          <div className="text-xs font-mono font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
+        <div className="max-w-3xl mb-12 space-y-2">
+          <div className="text-xs font-mono font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5">
             <Mail className="w-4 h-4" />
             <span>Recruiter & Client Inquiries</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-            Get in Touch / Discuss Remote Roles
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white tracking-tight">
+            Get in Touch / Discuss Remote Opportunities
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-            Open for remote IT Support, Technical Virtual Assistant, or Junior Python developer opportunities.
+          <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+            Interested in discussing open IT Support, Technical VA, or Junior Python developer roles? Reach out directly below.
           </p>
         </div>
 
-        {/* Contact Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Direct Info & 1-Click Presets */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Left Column: Direct Info & Quick Copy Channels */}
+          <div className="lg:col-span-5 space-y-5">
             
             {/* Contact Channels Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-              <h3 className="text-xs font-mono font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-                Direct Contact Channels
+            <div className="bg-white dark:bg-stone-850 rounded-2xl p-6 border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 font-mono">
+                Direct Contact Information
               </h3>
 
               <div className="space-y-3">
                 {/* Email */}
-                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-100 dark:border-stone-800">
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-2 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 flex-shrink-0">
+                    <div className="p-2 rounded-lg bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex-shrink-0">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[10px] text-slate-400 font-mono font-bold uppercase">Email Address</div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white font-mono truncate">
+                      <div className="text-[11px] text-stone-500 font-mono">Email Address</div>
+                      <div className="text-xs font-semibold text-stone-900 dark:text-white font-mono truncate">
                         {PERSONAL_INFO.email}
                       </div>
                     </div>
                   </div>
                   <button
                     onClick={() => handleCopy(PERSONAL_INFO.email, 'Email')}
-                    className="p-1.5 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition"
+                    className="p-1.5 text-stone-400 hover:text-teal-600 dark:hover:text-teal-400 rounded-lg transition"
                     title="Copy Email"
                   >
                     {copiedItem === 'Email' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
@@ -111,21 +110,21 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-100 dark:border-stone-800">
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="p-2 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 flex-shrink-0">
+                    <div className="p-2 rounded-lg bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex-shrink-0">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[10px] text-slate-400 font-mono font-bold uppercase">Phone / Viber / WhatsApp</div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white font-mono truncate">
+                      <div className="text-[11px] text-stone-500 font-mono">Phone / WhatsApp / Viber</div>
+                      <div className="text-xs font-semibold text-stone-900 dark:text-white font-mono truncate">
                         {PERSONAL_INFO.phone}
                       </div>
                     </div>
                   </div>
                   <button
                     onClick={() => handleCopy(PERSONAL_INFO.phone, 'Phone')}
-                    className="p-1.5 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl transition"
+                    className="p-1.5 text-stone-400 hover:text-teal-600 dark:hover:text-teal-400 rounded-lg transition"
                     title="Copy Phone"
                   >
                     {copiedItem === 'Phone' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
@@ -133,56 +132,56 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                 </div>
 
                 {/* Location */}
-                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700">
-                  <div className="p-2 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 flex-shrink-0">
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-100 dark:border-stone-800">
+                  <div className="p-2 rounded-lg bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex-shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[10px] text-slate-400 font-mono font-bold uppercase">Current Base</div>
-                    <div className="text-xs font-bold text-slate-900 dark:text-white">
+                    <div className="text-[11px] text-stone-500 font-mono">Current Location</div>
+                    <div className="text-xs font-semibold text-stone-900 dark:text-white">
                       {PERSONAL_INFO.location}
                     </div>
-                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
-                      Remote Worldwide Timezone Availability
+                    <div className="text-[10px] text-emerald-700 dark:text-emerald-400 font-medium">
+                      Available for Remote Worldwide Timezones
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Socials */}
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-3">
+              {/* Profiles */}
+              <div className="pt-2 border-t border-stone-100 dark:border-stone-800 grid grid-cols-2 gap-3">
                 <a
                   href={PERSONAL_INFO.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs flex items-center justify-between hover:border-blue-500 transition group"
+                  className="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs flex items-center justify-between hover:border-teal-500 transition group"
                 >
                   <div className="flex items-center gap-2">
                     <Linkedin className="w-4 h-4 text-sky-600" />
-                    <span className="font-bold text-slate-800 dark:text-slate-200">LinkedIn</span>
+                    <span className="font-semibold text-stone-800 dark:text-stone-200">LinkedIn</span>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600" />
+                  <ExternalLink className="w-3 h-3 text-stone-400 group-hover:text-teal-600" />
                 </a>
 
                 <a
                   href={PERSONAL_INFO.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs flex items-center justify-between hover:border-blue-500 transition group"
+                  className="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs flex items-center justify-between hover:border-teal-500 transition group"
                 >
                   <div className="flex items-center gap-2">
-                    <Github className="w-4 h-4 text-slate-900 dark:text-white" />
-                    <span className="font-bold text-slate-800 dark:text-slate-200">GitHub</span>
+                    <Github className="w-4 h-4 text-stone-900 dark:text-white" />
+                    <span className="font-semibold text-stone-800 dark:text-stone-200">GitHub</span>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600" />
+                  <ExternalLink className="w-3 h-3 text-stone-400 group-hover:text-teal-600" />
                 </a>
               </div>
             </div>
 
-            {/* Recruiter Quick Presets Bento Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="text-xs font-mono font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-                1-Click Inquiries for Recruiters:
+            {/* Recruiter Quick Message Presets */}
+            <div className="bg-white dark:bg-stone-850 rounded-2xl p-5 border border-stone-200 dark:border-stone-800 shadow-xs space-y-3">
+              <div className="text-xs font-mono font-bold uppercase text-stone-500 dark:text-stone-400">
+                1-Click Form Presets for Recruiters:
               </div>
               <div className="grid grid-cols-1 gap-2">
                 <button
@@ -191,22 +190,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                     'Remote IT Support Specialist Opportunity',
                     'Hello Joan, we came across your portfolio and would like to discuss an open Remote IT Support role with our team. Are you available for a brief conversation this week?'
                   )}
-                  className="p-2.5 text-left rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-slate-200/80 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 transition flex items-center justify-between group font-medium"
+                  className="p-2 text-left rounded-lg bg-stone-50 dark:bg-stone-900 hover:bg-teal-50 dark:hover:bg-teal-950/40 border border-stone-200/80 dark:border-stone-800 text-xs text-stone-700 dark:text-stone-300 transition flex items-center justify-between"
                 >
-                  <span>💻 Remote IT Support Role</span>
-                  <span className="text-[10px] font-mono font-bold text-blue-600 group-hover:underline">Apply</span>
+                  <span>💻 Remote IT Support Specialist Role</span>
+                  <span className="text-[10px] font-mono text-teal-600">Apply Preset</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => handleQuickPreset(
-                    'Technical Virtual Assistant / Operations Position',
+                    'Technical Virtual Assistant / Executive Operations Position',
                     'Hello Joan, we are seeking a Technical Virtual Assistant with strong document management (BIR ORUS, spreadsheets, Google Workspace) and administrative coordination skills. We would love to review your background.'
                   )}
-                  className="p-2.5 text-left rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-slate-200/80 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 transition flex items-center justify-between group font-medium"
+                  className="p-2 text-left rounded-lg bg-stone-50 dark:bg-stone-900 hover:bg-teal-50 dark:hover:bg-teal-950/40 border border-stone-200/80 dark:border-stone-800 text-xs text-stone-700 dark:text-stone-300 transition flex items-center justify-between"
                 >
-                  <span>📋 Technical VA / Legal Operations</span>
-                  <span className="text-[10px] font-mono font-bold text-blue-600 group-hover:underline">Apply</span>
+                  <span>📋 Technical VA / Legal Operations Role</span>
+                  <span className="text-[10px] font-mono text-teal-600">Apply Preset</span>
                 </button>
 
                 <button
@@ -215,10 +214,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                     'Junior Python / Automation Developer Opportunity',
                     'Hello Joan, we reviewed your AROMIN HR Mini System and Python/SQLite project work. We have a Junior Python / Automation developer opening and would like to interview you.'
                   )}
-                  className="p-2.5 text-left rounded-2xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-slate-200/80 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 transition flex items-center justify-between group font-medium"
+                  className="p-2 text-left rounded-lg bg-stone-50 dark:bg-stone-900 hover:bg-teal-50 dark:hover:bg-teal-950/40 border border-stone-200/80 dark:border-stone-800 text-xs text-stone-700 dark:text-stone-300 transition flex items-center justify-between"
                 >
                   <span>🐍 Junior Python Developer Role</span>
-                  <span className="text-[10px] font-mono font-bold text-blue-600 group-hover:underline">Apply</span>
+                  <span className="text-[10px] font-mono text-teal-600">Apply Preset</span>
                 </button>
               </div>
             </div>
@@ -226,20 +225,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
           </div>
 
           {/* Right Column: Contact & Message Form */}
-          <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-9 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="lg:col-span-7 bg-white dark:bg-stone-850 rounded-2xl p-6 sm:p-8 border border-stone-200 dark:border-stone-800 shadow-xs">
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="border-b border-slate-100 dark:border-slate-800 pb-3 mb-2">
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+              <div className="border-b border-stone-100 dark:border-stone-800 pb-3 mb-2">
+                <h3 className="text-base font-bold text-stone-900 dark:text-white">
                   Send Direct Inquiry
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Sends directly to Joan's verified inbox (<span className="font-mono text-blue-600 dark:text-blue-400 font-bold">{PERSONAL_INFO.email}</span>)
+                <p className="text-xs text-stone-500 dark:text-stone-400">
+                  Sends directly to Joan's primary inbox (<span className="font-mono text-teal-700 dark:text-teal-400">jherizalyn@gmail.com</span>)
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1.5">
                     Your Full Name *
                   </label>
                   <input
@@ -248,12 +247,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                     placeholder="e.g. Sarah Jenkins"
                     value={senderName}
                     onChange={(e) => setSenderName(e.target.value)}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-4 py-2.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium"
+                    className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 dark:text-white placeholder-stone-400 focus:outline-none focus:border-teal-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1.5">
                     Work / Contact Email *
                   </label>
                   <input
@@ -262,13 +261,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                     placeholder="e.g. sjenkins@company.com"
                     value={senderEmail}
                     onChange={(e) => setSenderEmail(e.target.value)}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-4 py-2.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 font-mono"
+                    className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 dark:text-white placeholder-stone-400 focus:outline-none focus:border-teal-500 font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1.5">
                   Subject / Position Inquiry
                 </label>
                 <input
@@ -276,12 +275,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                   placeholder="e.g. Remote IT Support Specialist Opportunity"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-4 py-2.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium"
+                  className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 dark:text-white placeholder-stone-400 focus:outline-none focus:border-teal-500"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1.5">
                   Message *
                 </label>
                 <textarea
@@ -290,18 +289,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
                   placeholder="Hello Joan, we would love to discuss an opportunity with our team..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 leading-relaxed font-medium"
+                  className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-xl p-3.5 text-xs text-stone-900 dark:text-white placeholder-stone-400 focus:outline-none focus:border-teal-500 leading-relaxed"
                 />
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                <span className="text-[11px] text-stone-500 dark:text-stone-400">
                   ⚡ Typically responds within 24 business hours.
                 </span>
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-2xl flex items-center justify-center gap-2 transition shadow-md hover:shadow-lg"
+                  className="w-full sm:w-auto px-6 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition shadow-sm hover:shadow"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Message via Email Client</span>
@@ -309,7 +308,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
               </div>
 
               {sentSuccess && (
-                <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 rounded-2xl text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
+                <div className="p-3 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 rounded-xl text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
                   <span>Email client opened! You can also copy contact details on the left to send manually.</span>
                 </div>

@@ -22,14 +22,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden transition-all">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+      <div className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden transition-all">
         
         {/* Header */}
-        <div className="p-5 sm:px-8 bg-slate-50 dark:bg-slate-850 border-b border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4">
+        <div className="p-5 sm:px-7 bg-stone-50 dark:bg-stone-850 border-b border-stone-200 dark:border-stone-800 flex items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-              <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider ${
+              <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full font-semibold ${
                 project.status === 'Completed'
                   ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800'
                   : project.status === 'In Progress'
@@ -38,53 +38,53 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               }`}>
                 {project.status}
               </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-bold">
+              <span className="text-xs text-stone-500 dark:text-stone-400 font-mono">
                 {project.category}
               </span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-white tracking-tight">
               {project.title}
             </h2>
-            <p className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-bold mt-0.5">
+            <p className="text-xs sm:text-sm text-teal-700 dark:text-teal-400 font-medium mt-0.5">
               {project.subtitle}
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-800 transition"
+            className="p-1.5 text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Body Content */}
-        <div className="overflow-y-auto p-6 sm:p-8 space-y-6 flex-1 text-sm text-slate-700 dark:text-slate-300">
+        <div className="overflow-y-auto p-6 sm:p-7 space-y-6 flex-1 text-sm text-stone-700 dark:text-stone-300">
           
           {/* Overview */}
           <div>
-            <h4 className="text-xs font-mono font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">
-              System Architecture & Problem Solved
+            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 font-mono mb-2">
+              System Overview & Problem Solved
             </h4>
-            <p className="text-slate-800 dark:text-slate-200 leading-relaxed text-xs sm:text-sm">
+            <p className="text-stone-800 dark:text-stone-200 leading-relaxed">
               {project.description}
             </p>
           </div>
 
           {/* Key Architectural Highlights */}
           <div className="space-y-3">
-            <h4 className="text-xs font-mono font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-              Key Engineering Highlights
+            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 font-mono">
+              Key Engineering Achievements
             </h4>
             <div className="grid grid-cols-1 gap-2.5">
               {project.highlightPoints.map((point, idx) => (
                 <div 
                   key={idx}
-                  className="flex items-start gap-2.5 p-3 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800"
+                  className="flex items-start gap-2.5 p-3 rounded-lg bg-stone-50 dark:bg-stone-850 border border-stone-200 dark:border-stone-800/80"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-stone-800 dark:text-stone-200">
                     {point}
                   </span>
                 </div>
@@ -94,41 +94,41 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
           {/* Technical Architecture Breakdown */}
           <div className="space-y-3">
-            <h4 className="text-xs font-mono font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 font-mono">
               Architecture & Data Flow
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               {project.architecture.frontend && (
-                <div className="p-3.5 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-1">
-                  <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white">
-                    <Layers className="w-3.5 h-3.5 text-blue-600" />
+                <div className="p-3 bg-stone-50 dark:bg-stone-850 rounded-lg border border-stone-200 dark:border-stone-800 space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900 dark:text-white">
+                    <Layers className="w-3.5 h-3.5 text-teal-600" />
                     Presentation Layer
                   </div>
-                  <div className="text-slate-600 dark:text-slate-400">
+                  <div className="text-stone-600 dark:text-stone-400">
                     {project.architecture.frontend}
                   </div>
                 </div>
               )}
 
               {project.architecture.backend && (
-                <div className="p-3.5 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-1">
-                  <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white">
-                    <Code className="w-3.5 h-3.5 text-blue-600" />
+                <div className="p-3 bg-stone-50 dark:bg-stone-850 rounded-lg border border-stone-200 dark:border-stone-800 space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900 dark:text-white">
+                    <Code className="w-3.5 h-3.5 text-teal-600" />
                     Logic & Engine Layer
                   </div>
-                  <div className="text-slate-600 dark:text-slate-400">
+                  <div className="text-stone-600 dark:text-stone-400">
                     {project.architecture.backend}
                   </div>
                 </div>
               )}
 
               {project.architecture.database && (
-                <div className="p-3.5 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-1 sm:col-span-2">
-                  <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white">
-                    <Database className="w-3.5 h-3.5 text-blue-600" />
+                <div className="p-3 bg-stone-50 dark:bg-stone-850 rounded-lg border border-stone-200 dark:border-stone-800 space-y-1 sm:col-span-2">
+                  <div className="flex items-center gap-1.5 font-bold text-stone-900 dark:text-white">
+                    <Database className="w-3.5 h-3.5 text-teal-600" />
                     Persistence & Database Schema
                   </div>
-                  <div className="text-slate-600 dark:text-slate-400 font-mono text-[11px]">
+                  <div className="text-stone-600 dark:text-stone-400 font-mono text-[11px]">
                     {project.architecture.database}
                   </div>
                 </div>
@@ -138,14 +138,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
           {/* Tags */}
           <div>
-            <h4 className="text-xs font-mono font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 dark:text-stone-500 font-mono mb-2">
               Technologies & Methodologies
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-xl text-xs font-mono font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                  className="px-2.5 py-1 rounded-md text-xs font-mono bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700"
                 >
                   {tag}
                 </span>
@@ -156,14 +156,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 sm:px-8 bg-slate-50 dark:bg-slate-850 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <div className="p-4 sm:px-7 bg-stone-50 dark:bg-stone-850 border-t border-stone-200 dark:border-stone-800 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition border border-slate-700"
+                className="px-4 py-2 bg-stone-900 dark:bg-stone-800 hover:bg-stone-800 dark:hover:bg-stone-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
               >
                 <Github className="w-4 h-4" />
                 View GitHub Code
@@ -175,7 +175,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition shadow-xs"
+                className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition"
               >
                 <ExternalLink className="w-4 h-4" />
                 Open Live Web Portal
@@ -188,7 +188,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                   onClose();
                   onOpenDemo();
                 }}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition shadow-xs"
+                className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition shadow-sm"
               >
                 <PlayCircle className="w-4 h-4" />
                 Test Interactive App Demo
@@ -198,7 +198,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
           <button
             onClick={onClose}
-            className="px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-xs font-bold"
+            className="px-4 py-2 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white text-xs font-medium"
           >
             Close Details
           </button>

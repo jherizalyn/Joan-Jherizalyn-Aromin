@@ -31,34 +31,34 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
   });
 
   return (
-    <section id="projects" className="py-16 sm:py-20 border-t border-slate-200 dark:border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <section id="projects" className="py-16 sm:py-20 border-t border-stone-200/80 dark:border-stone-800/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div className="max-w-2xl space-y-2">
-            <div className="text-xs font-mono font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
+            <div className="text-xs font-mono font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5">
               <FolderGit2 className="w-4 h-4" />
-              <span>Featured Architecture & Systems</span>
+              <span>Verified Portfolio & Systems</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-              Technical Projects & Portfolios
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white tracking-tight">
+              Featured Technical Projects
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-              Desktop database applications, full-stack subscriber platforms, and security toolsets built with structured code.
+            <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+              A showcase of desktop software, web systems, and technical architectures built with authentic code.
             </p>
           </div>
 
           {/* Status Filter Tabs */}
-          <div className="flex items-center bg-slate-100 dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs overflow-x-auto">
+          <div className="flex items-center bg-stone-100 dark:bg-stone-850 p-1 rounded-xl border border-stone-200 dark:border-stone-800 text-xs overflow-x-auto">
             {(['All', 'Completed', 'In Progress', 'Concept / Future'] as const).map((status) => (
               <button
                 key={status}
                 onClick={() => setFilter(status)}
-                className={`px-3.5 py-1.5 rounded-xl font-bold whitespace-nowrap transition ${
+                className={`px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition ${
                   filter === status
-                    ? 'bg-white dark:bg-blue-600 text-slate-900 dark:text-white shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white dark:bg-stone-700 text-stone-900 dark:text-white font-semibold shadow-xs'
+                    : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'
                 }`}
               >
                 {status}
@@ -68,27 +68,23 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
         </div>
 
         {/* FEATURED INTERACTIVE SIMULATION SPOTLIGHT: AROMIN HR MINI SYSTEM */}
-        <div id="demo-hr" className="space-y-4">
+        <div id="demo-hr" className="mb-14 space-y-4">
           <div className="flex items-center justify-between flex-wrap gap-2">
-            <div className="flex items-center gap-2.5">
-              <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-blue-600"></div>
-                <div className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
-                <div className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
-              </div>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                Live Desktop Simulation: AROMIN HR Mini System
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-                  Python / Tkinter / SQLite Logic
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-ping"></span>
+              <h3 className="text-sm sm:text-base font-bold text-stone-900 dark:text-white flex items-center gap-2">
+                Interactive Desktop Simulator: AROMIN HR Mini System
+                <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300">
+                  Live Python/SQLite Logic
                 </span>
               </h3>
             </div>
             
             <button
               onClick={() => setShowLiveSim(!showLiveSim)}
-              className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+              className="text-xs font-mono text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1"
             >
-              {showLiveSim ? 'Minimize Simulator' : 'Expand Simulator'}
+              {showLiveSim ? 'Hide Simulator' : 'Show Simulator'}
             </button>
           </div>
 
@@ -99,18 +95,18 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
           )}
         </div>
 
-        {/* Projects Bento Grid */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-md transition-all group hover:border-blue-300 dark:hover:border-blue-700"
+              className="bg-white dark:bg-stone-850 rounded-2xl border border-stone-200 dark:border-stone-800 flex flex-col justify-between overflow-hidden shadow-xs hover:shadow-md transition-all group hover:border-teal-500/50"
             >
-              <div className="p-6 sm:p-7 space-y-4">
+              <div className="p-5 sm:p-6 space-y-4">
                 
                 {/* Header Meta */}
                 <div className="flex items-center justify-between gap-2">
-                  <span className={`text-[10px] font-mono font-black uppercase tracking-wider px-2.5 py-1 rounded-full ${
+                  <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                     project.status === 'Completed'
                       ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
                       : project.status === 'In Progress'
@@ -120,38 +116,38 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                     {project.status}
                   </span>
 
-                  <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-bold">
+                  <span className="text-[11px] font-mono text-stone-400 dark:text-stone-500">
                     {project.category}
                   </span>
                 </div>
 
                 {/* Title & Subtitle */}
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-base font-bold text-stone-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold mt-0.5">
+                  <p className="text-xs text-teal-700 dark:text-teal-400 font-medium mt-0.5">
                     {project.subtitle}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3">
+                <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
-                {/* Tags Bento Row */}
+                {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {project.tags.slice(0, 4).map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-xl text-[10px] font-mono font-semibold bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700"
+                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200/80 dark:border-stone-700"
                     >
                       {tag}
                     </span>
                   ))}
                   {project.tags.length > 4 && (
-                    <span className="px-2 py-1 rounded-xl text-[10px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-400 font-bold">
+                    <span className="px-1.5 py-0.5 rounded text-[11px] font-mono bg-stone-100 dark:bg-stone-800 text-stone-400">
                       +{project.tags.length - 4}
                     </span>
                   )}
@@ -160,10 +156,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
               </div>
 
               {/* Card Footer Actions */}
-              <div className="p-4 sm:px-7 bg-slate-50/80 dark:bg-slate-950/60 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+              <div className="p-4 sm:px-6 bg-stone-50 dark:bg-stone-900/60 border-t border-stone-100 dark:border-stone-800/80 flex items-center justify-between gap-2">
                 <button
                   onClick={() => onSelectProject(project)}
-                  className="text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1 transition"
+                  className="text-xs font-bold text-stone-800 dark:text-stone-200 hover:text-teal-600 dark:hover:text-teal-400 flex items-center gap-1 transition"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>View Details</span>
@@ -177,7 +173,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                       target="_blank"
                       rel="noreferrer"
                       title="GitHub Repository"
-                      className="p-1.5 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition"
+                      className="p-1.5 rounded-lg text-stone-500 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200 dark:hover:bg-stone-800 transition"
                     >
                       <Github className="w-4 h-4" />
                     </a>
@@ -189,7 +185,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                       target="_blank"
                       rel="noreferrer"
                       title="Live System"
-                      className="p-1.5 rounded-xl text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition"
+                      className="p-1.5 rounded-lg text-stone-500 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-stone-200 dark:hover:bg-stone-800 transition"
                     >
                       <ExternalLink className="w-4 h-4" />
                     </a>

@@ -15,10 +15,7 @@ import {
   ArrowDown,
   Sparkles,
   ShieldCheck,
-  CheckCircle2,
-  Briefcase,
-  Zap,
-  Code2
+  CheckCircle2
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { RoleFocus } from '../types';
@@ -48,64 +45,69 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="top" className="pt-28 sm:pt-36 pb-12 sm:pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <section id="top" className="pt-28 sm:pt-36 pb-12 sm:pb-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Master Bento Grid */}
-        <div className="grid grid-cols-12 gap-5">
+        {/* Top Status & Role Badges */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Open to Remote Opportunities</span>
+            <span className="text-emerald-600/60 dark:text-emerald-400/60 font-mono">•</span>
+            <span className="font-mono text-[11px]">Worldwide</span>
+          </div>
+
+          <div className="flex items-center gap-1 text-xs font-mono text-stone-500 dark:text-stone-400">
+            <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+            <span>Biñan, Laguna, Philippines</span>
+          </div>
+        </div>
+
+        {/* Hero Grid: Intro & Quick Action Matrix */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Bento Cell 1: Main Candidate Profile & Lens Filter (Col 8) */}
-          <div className="col-span-12 lg:col-span-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 flex flex-col justify-between shadow-sm hover:shadow-md transition space-y-6">
-            <div className="space-y-4">
-              {/* Status Header */}
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-full uppercase tracking-widest border border-blue-200 dark:border-blue-800/60 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
-                  Open to Opportunities
-                </span>
-                <span className="text-slate-500 dark:text-slate-400 text-xs font-mono font-medium flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                  BSIT 2026 • STI College Carmona • Biñan, Laguna
-                </span>
+          {/* Left Column: Heading & Narrative */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-3">
+              <div className="text-xs font-mono text-teal-700 dark:text-teal-400 font-semibold tracking-wider uppercase flex items-center gap-1.5">
+                <span>Kumusta! Hello, I am</span>
               </div>
+              
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white leading-[1.15]">
+                Joan Jherizalyn Aromin
+              </h1>
 
-              {/* Title & Introduction */}
-              <div>
-                <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-                  {PERSONAL_INFO.name}
-                </h1>
-                <p className="text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400 mt-1">
-                  {PERSONAL_INFO.headline}
-                </p>
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-                {PERSONAL_INFO.bioShort}
+              <p className="text-sm sm:text-base font-medium text-stone-600 dark:text-stone-300">
+                <span className="text-stone-900 dark:text-white font-semibold">BSIT Graduate</span> • <span className="text-teal-700 dark:text-teal-400">IT Support Specialist</span> • <span className="text-stone-900 dark:text-white font-semibold">Technical Virtual Assistant</span> • <span className="text-teal-700 dark:text-teal-400">Junior Python Developer</span>
               </p>
             </div>
 
-            {/* Candidate Role Filter Lens */}
-            <div className="space-y-2.5 pt-2 border-t border-slate-100 dark:border-slate-800">
-              <div className="text-[10px] font-mono font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-                Filter Candidate Competency Lens:
+            <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-2xl">
+              {PERSONAL_INFO.bioShort}
+            </p>
+
+            {/* Role Filter Tabs (Customized Lens for Hiring Managers) */}
+            <div className="space-y-2 pt-1">
+              <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500">
+                Filter Candidate Lens For Your Role:
               </div>
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => onSelectRoleFilter('all')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${
                     activeRoleFilter === 'all'
-                      ? 'bg-slate-900 dark:bg-blue-600 text-white shadow-xs'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      ? 'bg-stone-900 dark:bg-teal-500 text-white dark:text-stone-950 font-semibold shadow-xs'
+                      : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-700'
                   }`}
                 >
                   All Capabilities
                 </button>
                 <button
                   onClick={() => onSelectRoleFilter('it-support')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
                     activeRoleFilter === 'it-support'
-                      ? 'bg-blue-600 text-white shadow-xs'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      ? 'bg-emerald-600 text-white font-semibold shadow-xs'
+                      : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-700'
                   }`}
                 >
                   <Monitor className="w-3.5 h-3.5" />
@@ -113,10 +115,10 @@ export const Hero: React.FC<HeroProps> = ({
                 </button>
                 <button
                   onClick={() => onSelectRoleFilter('tech-va')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
                     activeRoleFilter === 'tech-va'
-                      ? 'bg-indigo-600 text-white shadow-xs'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      ? 'bg-sky-600 text-white font-semibold shadow-xs'
+                      : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-700'
                   }`}
                 >
                   <FileSpreadsheet className="w-3.5 h-3.5" />
@@ -124,10 +126,10 @@ export const Hero: React.FC<HeroProps> = ({
                 </button>
                 <button
                   onClick={() => onSelectRoleFilter('junior-python')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
                     activeRoleFilter === 'junior-python'
-                      ? 'bg-amber-600 text-white shadow-xs'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      ? 'bg-amber-600 text-white font-semibold shadow-xs'
+                      : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-700'
                   }`}
                 >
                   <Terminal className="w-3.5 h-3.5" />
@@ -136,11 +138,11 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Primary Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#projects"
-                className="px-5 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition shadow-md hover:shadow-lg"
+                className="px-5 py-2.5 rounded-xl bg-stone-900 dark:bg-teal-500 hover:bg-stone-800 dark:hover:bg-teal-400 text-white dark:text-stone-950 font-bold text-xs sm:text-sm flex items-center gap-2 transition shadow-md hover:shadow-lg"
               >
                 <span>Explore Technical Projects</span>
                 <ArrowDown className="w-4 h-4" />
@@ -148,139 +150,110 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onOpenATS}
-                className="px-5 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition shadow-md hover:shadow-lg"
+                className="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition shadow-md hover:shadow-lg"
               >
-                <FileText className="w-4 h-4 text-blue-400" />
+                <FileText className="w-4 h-4" />
                 <span>View ATS Resume</span>
               </button>
 
               <button
                 onClick={onOpenContact}
-                className="px-5 py-2.5 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition border border-slate-200 dark:border-slate-700"
+                className="px-5 py-2.5 rounded-xl bg-stone-200/80 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 text-stone-900 dark:text-white font-semibold text-xs sm:text-sm flex items-center gap-2 transition"
               >
-                <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <Mail className="w-4 h-4 text-teal-600 dark:text-teal-400" />
                 <span>Get in Touch</span>
               </button>
             </div>
+
           </div>
 
-          {/* Bento Cell 2: Dark Accent Ready to Deploy Card (Col 4) */}
-          <div className="col-span-12 lg:col-span-4 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl border border-slate-800 relative overflow-hidden space-y-6">
-            <div className="relative z-10 flex justify-between items-start">
-              <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-2xl border border-white/10 shadow-inner">
-                💻
-              </div>
-              <div className="text-right">
-                <div className="text-[10px] text-white/50 font-mono uppercase tracking-widest font-black">
-                  Internship Practicum
-                </div>
-                <div className="text-xl font-black text-blue-400 font-mono">
-                  486 Hours
-                </div>
-              </div>
-            </div>
-
-            <div className="relative z-10 space-y-3">
-              <div>
-                <div className="text-2xl sm:text-3xl font-black italic tracking-tight text-white mb-1">
-                  Ready to Deploy
-                </div>
-                <p className="text-xs text-white/70 leading-relaxed">
-                  Trained in Windows OS Deployment, PC Hardware Diagnostics, SQLite Relational Database Management, & Python Automation.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/10">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-[10px] font-mono text-white/50 uppercase">Degree</div>
-                  <div className="text-xs font-bold text-white">BSIT 2026</div>
-                </div>
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-[10px] font-mono text-white/50 uppercase">Availability</div>
-                  <div className="text-xs font-bold text-emerald-400">Immediate</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Subtle decorative background watermarks */}
-            <div className="absolute -bottom-6 -right-6 text-9xl font-black text-white/[0.03] select-none pointer-events-none">
-              IT
-            </div>
-          </div>
-
-          {/* Bento Cell 3: Recruiter 1-Click Fast Contact Bar (Col 12) */}
-          <div className="col-span-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Right Column: Recruiter Card & 1-Click Info Box */}
+          <div className="lg:col-span-5 space-y-4">
             
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 w-full md:w-auto justify-center md:justify-start">
-              
-              {/* Email */}
-              <div className="flex items-center gap-2 group">
-                <span className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-mono">
-                  <Mail className="w-4 h-4" />
-                </span>
-                <span className="font-mono text-xs font-semibold">{PERSONAL_INFO.email}</span>
-                <button
-                  onClick={() => handleCopy(PERSONAL_INFO.email, 'Email')}
-                  className="p-1 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition"
-                  title="Copy Email"
+            {/* Quick Metrics Grid */}
+            <div className="grid grid-cols-2 gap-2.5">
+              {PERSONAL_INFO.stats.map((stat, i) => (
+                <div 
+                  key={i} 
+                  className="bg-white dark:bg-stone-850 p-3.5 rounded-xl border border-stone-200 dark:border-stone-800 shadow-xs transition hover:border-teal-500/50"
                 >
-                  {copiedItem === 'Email' ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-center gap-2 group">
-                <span className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-mono">
-                  <Phone className="w-4 h-4" />
-                </span>
-                <span className="font-mono text-xs font-semibold">{PERSONAL_INFO.phone}</span>
-                <button
-                  onClick={() => handleCopy(PERSONAL_INFO.phone, 'Phone')}
-                  className="p-1 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition"
-                  title="Copy Phone"
-                >
-                  {copiedItem === 'Phone' ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-
-              {/* Location */}
-              <div className="flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
-                  <MapPin className="w-4 h-4" />
-                </span>
-                <span className="text-xs font-semibold">{PERSONAL_INFO.location}</span>
-              </div>
-
+                  <div className="text-[11px] font-mono text-stone-500 dark:text-stone-400">{stat.label}</div>
+                  <div className="text-base sm:text-lg font-bold text-stone-900 dark:text-white mt-0.5">{stat.value}</div>
+                  <div className="text-[11px] text-teal-700 dark:text-teal-400 font-medium truncate">{stat.subtitle}</div>
+                </div>
+              ))}
             </div>
 
-            {/* Quick Actions */}
-            <div className="flex items-center gap-2.5 flex-shrink-0">
-              <a
-                href={PERSONAL_INFO.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 transition border border-slate-200 dark:border-slate-700"
-              >
-                <Linkedin className="w-3.5 h-3.5 text-sky-600" />
-                <span>LinkedIn</span>
-              </a>
+            {/* Recruiter 1-Click Clipboard Center */}
+            <div className="bg-white dark:bg-stone-850 rounded-xl p-4 sm:p-5 border border-stone-200 dark:border-stone-800 shadow-sm space-y-3">
+              <div className="flex items-center justify-between border-b border-stone-100 dark:border-stone-800 pb-2">
+                <span className="text-xs font-mono font-bold uppercase text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-teal-600" />
+                  1-Click Recruiter Copy Bar
+                </span>
+                <span className="text-[11px] text-stone-400">Direct Contact</span>
+              </div>
 
-              <a
-                href={PERSONAL_INFO.github}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 transition border border-slate-200 dark:border-slate-700"
-              >
-                <Github className="w-3.5 h-3.5 text-slate-900 dark:text-white" />
-                <span>GitHub</span>
-              </a>
+              <div className="space-y-2">
+                {/* Email Item */}
+                <div className="flex items-center justify-between p-2 rounded-lg bg-stone-50 dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 text-xs">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Mail className="w-3.5 h-3.5 text-teal-600 flex-shrink-0" />
+                    <span className="font-mono text-stone-800 dark:text-stone-200 truncate">{PERSONAL_INFO.email}</span>
+                  </div>
+                  <button
+                    onClick={() => handleCopy(PERSONAL_INFO.email, 'Email')}
+                    title="Copy Email"
+                    className="p-1 text-stone-500 hover:text-teal-600 dark:hover:text-teal-400 rounded transition ml-2 flex-shrink-0"
+                  >
+                    {copiedItem === 'Email' ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
 
-              <button
-                onClick={onOpenContact}
-                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1.5 transition shadow-xs"
-              >
-                <span>Hire Joan</span>
-              </button>
+                {/* Phone Item */}
+                <div className="flex items-center justify-between p-2 rounded-lg bg-stone-50 dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 text-xs">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Phone className="w-3.5 h-3.5 text-teal-600 flex-shrink-0" />
+                    <span className="font-mono text-stone-800 dark:text-stone-200 truncate">{PERSONAL_INFO.phone}</span>
+                  </div>
+                  <button
+                    onClick={() => handleCopy(PERSONAL_INFO.phone, 'Phone')}
+                    title="Copy Phone Number"
+                    className="p-1 text-stone-500 hover:text-teal-600 dark:hover:text-teal-400 rounded transition ml-2 flex-shrink-0"
+                  >
+                    {copiedItem === 'Phone' ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+
+                {/* LinkedIn & GitHub Shortcuts */}
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  <a
+                    href={PERSONAL_INFO.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 rounded-lg bg-stone-50 dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 text-xs flex items-center justify-between hover:border-teal-500 transition group"
+                  >
+                    <span className="flex items-center gap-1.5 text-stone-700 dark:text-stone-300 font-medium">
+                      <Linkedin className="w-3.5 h-3.5 text-sky-600" />
+                      LinkedIn
+                    </span>
+                    <ExternalLink className="w-3 h-3 text-stone-400 group-hover:text-teal-600" />
+                  </a>
+
+                  <a
+                    href={PERSONAL_INFO.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 rounded-lg bg-stone-50 dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 text-xs flex items-center justify-between hover:border-teal-500 transition group"
+                  >
+                    <span className="flex items-center gap-1.5 text-stone-700 dark:text-stone-300 font-medium">
+                      <Github className="w-3.5 h-3.5 text-stone-800 dark:text-stone-200" />
+                      GitHub
+                    </span>
+                    <ExternalLink className="w-3 h-3 text-stone-400 group-hover:text-teal-600" />
+                  </a>
+                </div>
+              </div>
             </div>
 
           </div>

@@ -11,8 +11,8 @@ export const Toast: React.FC<ToastProps> = ({ message }) => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-bounce duration-300">
-      <div className="bg-slate-900 text-white dark:bg-slate-850 dark:text-slate-100 border border-blue-500/50 px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs sm:text-sm font-bold">
-        <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0" />
+      <div className="bg-stone-900 text-white dark:bg-teal-950 dark:text-teal-100 border border-teal-500/50 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-xs sm:text-sm font-medium">
+        <CheckCircle2 className="w-5 h-5 text-teal-400 flex-shrink-0" />
         <span>{message}</span>
       </div>
     </div>

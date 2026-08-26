@@ -65,7 +65,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'} transition-colors duration-200`}>
+    <div className={`min-h-screen ${darkMode ? 'dark bg-stone-950 text-stone-100' : 'bg-stone-50 text-stone-900'} transition-colors duration-200`}>
       
       {/* Navigation */}
       <Navbar

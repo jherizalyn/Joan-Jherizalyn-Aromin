@@ -108,37 +108,37 @@ export const InteractiveHRDemo: React.FC = () => {
   });
 
   return (
-    <div className="bg-slate-900 border border-slate-700/80 rounded-3xl overflow-hidden shadow-2xl text-slate-100 font-sans">
+    <div className="bg-stone-900 border border-stone-700/80 rounded-xl overflow-hidden shadow-2xl text-stone-100 font-sans">
       {/* Desktop Window Titlebar (Tkinter / Native Look) */}
-      <div className="bg-slate-800/90 px-5 py-3 border-b border-slate-700 flex items-center justify-between select-none">
+      <div className="bg-stone-800/90 px-4 py-2.5 border-b border-stone-700 flex items-center justify-between select-none">
         <div className="flex items-center gap-2">
-          <div className="flex gap-2">
+          <div className="flex gap-1.5">
             <span className="w-3 h-3 rounded-full bg-rose-500/90 inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-amber-500/90 inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-emerald-500/90 inline-block"></span>
           </div>
-          <span className="text-xs font-mono text-slate-300 ml-2 font-bold">
+          <span className="text-xs font-mono text-stone-300 ml-2 font-medium">
             AROMIN_HR_Mini_System.py • Tkinter GUI v2.4 (SQLite3)
           </span>
         </div>
-        <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-          <span className="inline-flex items-center gap-1.5 bg-blue-950/80 text-blue-300 px-2.5 py-1 rounded-full border border-blue-800/50">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+        <div className="flex items-center gap-2 text-xs font-mono text-stone-400">
+          <span className="inline-flex items-center gap-1 bg-emerald-950/80 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800/50">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             DB: connected (hr_data.db)
           </span>
         </div>
       </div>
 
       {/* Main Tkinter App Toolbar & Tab Navigation */}
-      <div className="bg-slate-850 px-5 py-2.5 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 bg-slate-800/40">
-        <div className="flex items-center gap-1 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-700/60">
+      <div className="bg-stone-850 px-4 py-2 border-b border-stone-800 flex flex-wrap items-center justify-between gap-3 bg-stone-800/50">
+        <div className="flex items-center gap-1 bg-stone-900/90 p-1 rounded-lg border border-stone-700/60">
           <button
             id="hr-tab-employees"
             onClick={() => setActiveTab('employees')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded text-xs font-medium transition flex items-center gap-1.5 ${
               activeTab === 'employees' 
-                ? 'bg-blue-600 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-teal-600 text-white shadow-sm' 
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800'
             }`}
           >
             <Users className="w-3.5 h-3.5" />
@@ -147,10 +147,10 @@ export const InteractiveHRDemo: React.FC = () => {
           <button
             id="hr-tab-leaves"
             onClick={() => setActiveTab('leaves')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded text-xs font-medium transition flex items-center gap-1.5 ${
               activeTab === 'leaves' 
-                ? 'bg-blue-600 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-teal-600 text-white shadow-sm' 
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800'
             }`}
           >
             <CalendarClock className="w-3.5 h-3.5" />
@@ -159,10 +159,10 @@ export const InteractiveHRDemo: React.FC = () => {
           <button
             id="hr-tab-code"
             onClick={() => setActiveTab('code')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded text-xs font-mono text-xs transition flex items-center gap-1.5 ${
               activeTab === 'code' 
-                ? 'bg-blue-600 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-teal-600 text-white shadow-sm' 
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800'
             }`}
           >
             <Code2 className="w-3.5 h-3.5" />
@@ -171,10 +171,10 @@ export const InteractiveHRDemo: React.FC = () => {
           <button
             id="hr-tab-schema"
             onClick={() => setActiveTab('schema')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded text-xs font-mono transition flex items-center gap-1.5 ${
               activeTab === 'schema' 
-                ? 'bg-blue-600 text-white shadow-sm' 
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                ? 'bg-teal-600 text-white shadow-sm' 
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800'
             }`}
           >
             <Database className="w-3.5 h-3.5" />
@@ -186,7 +186,7 @@ export const InteractiveHRDemo: React.FC = () => {
           <button
             id="hr-btn-add-emp"
             onClick={() => setShowAddForm(!showAddForm)}
-            className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 transition shadow-sm"
+            className="px-3 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium flex items-center gap-1.5 transition shadow-sm"
           >
             <UserPlus className="w-3.5 h-3.5" />
             {showAddForm ? 'Cancel Form' : '+ Add Employee'}
@@ -195,7 +195,7 @@ export const InteractiveHRDemo: React.FC = () => {
       </div>
 
       {/* Dynamic Content View */}
-      <div className="p-5 bg-slate-900/90 min-h-[380px]">
+      <div className="p-4 bg-stone-900/90 min-h-[380px]">
         {/* EMPLOYEES TAB */}
         {activeTab === 'employees' && (
           <div className="space-y-4">
